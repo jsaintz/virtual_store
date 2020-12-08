@@ -7,7 +7,7 @@ class CategoryTile extends StatelessWidget {
 
   const CategoryTile(this.snapshot);
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
@@ -17,10 +17,9 @@ class CategoryTile extends StatelessWidget {
       ),
       title: Text(snapshot.data["title"]),
       trailing: Icon(Icons.keyboard_arrow_right),
-      onTap: (){
+      onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context)=>CategoryScreen(snapshot))
-        );
+            MaterialPageRoute(builder: (context) => CategoryScreen(snapshot)));
       },
     );
   }

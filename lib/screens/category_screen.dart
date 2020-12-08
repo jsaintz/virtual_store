@@ -7,14 +7,13 @@ class CategoryScreen extends StatelessWidget {
   final DocumentSnapshot snapshot;
 
   const CategoryScreen(this.snapshot);
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: snapshot.data["title"],
+          title: Text(snapshot.data["title"]),
           centerTitle: true,
           bottom: TabBar(
             indicatorColor: Colors.white,
@@ -45,7 +44,7 @@ class CategoryScreen extends StatelessWidget {
                       crossAxisSpacing: 4.0,
                       childAspectRatio: 0.65,
                     ),
-                    itemCount: snapshot.data.documents.length,
+                    itemCount: snapshot.data.documents.length,  
                     itemBuilder: (context, index) {
                       return ProductTile(
                           "grid",
