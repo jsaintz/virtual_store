@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:virtual_store/screens/home_screen.dart';
-import 'package:virtual_store/screens/login_screen.dart';
 
 Future<void> main() async {
   runApp(MyApp());
@@ -13,12 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter's Clothing",
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: Color.fromARGB(255, 4, 125, 141)
-      ),
+          primarySwatch: Colors.blue,
+          primaryColor: Color.fromARGB(255, 4, 125, 141)),
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }
-

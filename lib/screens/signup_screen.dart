@@ -1,34 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:virtual_store/screens/signup_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class SignUpScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Entrar"),
+        title: Text("Criar Conta"),
         centerTitle: true,
-        actions: [
-          FlatButton(
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => SignUpScreen()));
-            },
-            child: Text(
-              "CRIAR CONTA",
-              style: TextStyle(fontSize: 15.0),
-            ),
-            textColor: Colors.white,
-          ),
-        ],
       ),
       body: Form(
         key: _formKey,
         child: ListView(
           padding: EdgeInsets.all(16.00),
           children: [
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: "Nome",
+              ),
+              keyboardType: TextInputType.emailAddress,
+              validator: (text) {
+                if (text.isEmpty) return "Nome inválido!";
+              },
+            ),
+            SizedBox(height: 16),
             TextFormField(
               decoration: InputDecoration(
                 hintText: "E-mail",
@@ -39,9 +35,7 @@ class LoginScreen extends StatelessWidget {
                   return "E-mail inválido!";
               },
             ),
-            SizedBox(
-              height: 16,
-            ),
+            SizedBox(height: 16),
             TextFormField(
               decoration: InputDecoration(
                 hintText: "Senha",
@@ -51,20 +45,16 @@ class LoginScreen extends StatelessWidget {
                 if (text.isEmpty || text.length < 6) return "Senha inválida!";
               },
             ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: FlatButton(
-                onPressed: () {},
-                child: Text(
-                  "Esqueci minha senha",
-                  textAlign: TextAlign.right,
-                ),
-                padding: EdgeInsets.zero,
+            SizedBox(height: 16),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: "Endereço",
               ),
+              validator: (text) {
+                if (text.isEmpty) return "Endereço inválida!";
+              },
             ),
-            SizedBox(
-              height: 16,
-            ),
+            SizedBox(height: 16),
             SizedBox(
               height: 44,
               child: RaisedButton(
@@ -72,7 +62,7 @@ class LoginScreen extends StatelessWidget {
                   if (_formKey.currentState.validate()) {}
                 },
                 child: Text(
-                  "Entrar",
+                  "Criar Conta",
                   style: TextStyle(
                     fontSize: 18,
                   ),

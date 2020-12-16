@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:virtual_store/tiles/drawer_tile.dart';
+import 'package:virtual_store/screens/login_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   final PageController pageController;
@@ -48,17 +49,23 @@ class CustomDrawer extends StatelessWidget {
                           Text(
                             "Olá",
                             style: TextStyle(
-                                fontSize: 18.0, fontWeight: FontWeight.bold),
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           GestureDetector(
                             child: Text(
                               "Entre ou cadastre-se >",
                               style: TextStyle(
-                                  color: Theme.of(context).primaryColor,
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold),
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => LoginScreen()));
+                            },
                           ),
                         ],
                       ),
@@ -67,10 +74,10 @@ class CustomDrawer extends StatelessWidget {
                 ),
               ),
               Divider(),
-              DrawerTile(Icons.home, "Início",pageController,0),
-              DrawerTile(Icons.list, "Produtos",pageController,1),
-              DrawerTile(Icons.location_on, "Lojas",pageController,2),
-              DrawerTile(Icons.shopping_bag, "Meus Pedidos",pageController,3),
+              DrawerTile(Icons.home, "Início", pageController, 0),
+              DrawerTile(Icons.list, "Produtos", pageController, 1),
+              DrawerTile(Icons.location_on, "Lojas", pageController, 2),
+              DrawerTile(Icons.shopping_bag, "Meus Pedidos", pageController, 3),
             ],
           ),
         ],
